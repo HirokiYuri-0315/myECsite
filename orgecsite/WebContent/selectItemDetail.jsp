@@ -21,7 +21,7 @@
 
 	<div id="main">
 		<div id="top">
-			<p>selectItemDetail</p>
+			<p>商品詳細</p>
 		</div>
 
 

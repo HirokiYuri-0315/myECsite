@@ -11,7 +11,7 @@
 <title>ヘッダー</title>
 <script type="text/javascript">
 
-// サンプルの真似事。
+// javascript を用いたボタンの試作。
 function goHomeAction(){
 	document.getElementById("form").action="GoHomeAction";
 }
@@ -160,6 +160,7 @@ function goNewItemListAction2(){
 	<div id="memo"></div>
 
 <div id="header-menu">
+	<div id="logo_space"></div>
 	<div id="memo">menu</div>
 
 	<s:form id="form" name="form" theme="simple" method="execute">
@@ -180,7 +181,7 @@ function goNewItemListAction2(){
 		</s:if>
 
 		<s:if test="#session.login_user_id != null">
-			<s:submit value="商品購入" class="submit_btn" id="buy_btn" onclick="goBuyPageAction();"/>
+<%-- 			<s:submit value="商品購入" class="submit_btn" id="buy_btn" onclick="goBuyPageAction();"/> --%>
 			<s:submit value="カート" class="submit_btn" id="buy_btn" onclick="goCartAction();"/>
 		</s:if>
 		<s:else>
@@ -239,10 +240,10 @@ function goNewItemListAction2(){
 
 
 <!-- ========サイドメニュー======== -->
-	<div id="rightMenu">
-		<img id="iMenu" src="./image/img_menu.jpg" width="40px" >
-	</div>
+<div id="rightMenu">
+	<img id="iMenu" src="./image/img_menu.jpg" width="40px" >
 	<div id="iMenuPlus">×</div>
+</div>
 
 <div id="menu_info_right">
 	<div class="menu_info_box_right">

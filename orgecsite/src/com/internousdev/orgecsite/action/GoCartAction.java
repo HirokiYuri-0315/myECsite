@@ -18,6 +18,9 @@ public class GoCartAction extends ActionSupport implements SessionAware {
 
 	public String execute() throws SQLException {
 		String result;
+		if(!session.containsKey("login_user_id")) {
+			return ERROR;
+		}	/* sessionのidを持たずに（何らかのおかしな操作で）来てしまった場合、エラーとして弾く。 */
 
 		String userId = session.get("login_user_id").toString();
 		setCartInfoDTOList(cartInfoDAO.getCartInfo(userId));

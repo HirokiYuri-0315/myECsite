@@ -21,7 +21,7 @@
 
 	<div id="main">
 		<div id="top">
-			<p>cartAddComplete</p>
+			<p>カート追加完了画面</p>
 		</div>
 		<h3>商品がカートに追加されました。</h3>
 		<br>

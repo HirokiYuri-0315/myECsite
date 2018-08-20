@@ -26,9 +26,10 @@
 		<div>
 			<h3>商品の一覧を表示</h3>
 			<s:form action="MasterUpdateItemInfoSelectAction" method="execute">
-			<table border="1">
+			<table id="pre_list" border="1">
 				<tr>
 					<th>　</th><!--  -->
+					<th>商品画像</th>
 					<th>商品名</th>
 					<th>値段</th>
 					<th>在庫数</th>
@@ -36,6 +37,7 @@
 				<s:iterator value="session.itemList">
 					<tr>
 						<td><input type="radio" name="selectId" value='<s:property value="id"/>'></td> <!--  -->
+						<td><img id="list_item_image" src="<s:property value='imageFilePath'/>/<s:property value='imageFileName'/>"></td>
 						<td><s:property value="itemName" /></td>
 						<td><s:property value="itemPrice" /><span>円</span></td>
 						<td><s:property value="itemStock" /><span>個</span></td>

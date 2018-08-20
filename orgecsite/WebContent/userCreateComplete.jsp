@@ -23,7 +23,7 @@
 
 	<div id="main">
 		<div id="top">
-			<p>UserCreateComplete</p>
+			<p>ユーザー登録完了画面</p>
 		</div>
 		<div>
 			<h3>ユーザーの登録が完了致しました。</h3>

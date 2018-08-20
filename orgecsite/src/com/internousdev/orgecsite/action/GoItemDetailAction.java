@@ -16,6 +16,10 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware {
 	public Map<String,Object> session;
 
 	public String execute() throws SQLException {
+		if(selectId.equals(null)) {
+			return ERROR;
+		}	/* sessionのidを持たずに（何らかのおかしな操作で）来てしまった場合、エラーとして弾く。 */
+
 		ItemDataDTO anItemAllDataDTO = itemDataDAO.getAnItemData(selectId);
 		session.put("selectId", anItemAllDataDTO.getId());
 		session.put("selectItemName", anItemAllDataDTO.getItemName());

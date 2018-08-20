@@ -14,7 +14,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="./footerFixed.js"></script>
 
-	<title>購入画面2</title>
+	<title>購入画面</title>
 
 
 </head>
@@ -26,7 +26,7 @@
 
 	<div id="main">
 		<div id="top">
-			<p>BuyItem2</p>
+			<p>購入画面</p>
 		</div>
 		<div>
 			<div id="error">
@@ -34,8 +34,10 @@
 					<h4><s:property value="errorMessage" escape="false" /></h4>
 				</s:if>
 			</div>
+
+			<div id="form-frame">
 			<s:form action="BuyItemAction">
-				<table>
+				<table id="buy_item">
 					<tr>
 						<td colspan="2" align="center">
 							<div id="buy_item_box"><img id="buy_item_image" src="<s:property value='#session.buyImageFilePath'/>/<s:property value='#session.buyImageFileName'/>"></div>
@@ -80,13 +82,13 @@
 							<input type="radio" name="pay" value="2">クレジットカード
 						</td>
 					</tr>
-					<tr>
-						<td>
-							<s:submit value="購入"/>
-						</td>
-					</tr>
 				</table>
+				<div id="common_btn_box">
+					<s:submit value="購入"/>
+				</div>
 			</s:form>
+			</div>
+
 			<div>
 <%-- 				<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p> --%>
 				<p>マイページは<a href='<s:url action="MyPageAction2"/>'>こちら</a></p>

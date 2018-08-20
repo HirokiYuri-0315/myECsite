@@ -25,7 +25,7 @@ public class GoNewItemListAction extends ActionSupport implements SessionAware {
 	public String execute() throws SQLException{
 		String result;
 		setNewItemList(itemDataDAO.getNewItemDataInfo());
-		// 全商品の情報を newItemList にセットした。これからどうしよう。
+		// 全商品の情報を newItemList にセットした。
 		session.put("newItemList", newItemList);
 
 
@@ -34,7 +34,7 @@ public class GoNewItemListAction extends ActionSupport implements SessionAware {
 		PaginationDTO paginationDTO = pagination.initialize(newItemList, pageSize);
 		session.put("totalPageSize", paginationDTO.getTotalPageSize());
 		session.put("currentPageNo", paginationDTO.getCurrentPageNo());
-		session.put("totalRecordSize", paginationDTO.getTotalPageSize());
+		session.put("totalRecordSize", paginationDTO.getTotalRecordSize());
 		session.put("startRecordNo", paginationDTO.getStartRecordNo());
 		session.put("endRecordNo", paginationDTO.getEndRecordNo());
 		session.put("pageNumberList", paginationDTO.getPageNumberList());

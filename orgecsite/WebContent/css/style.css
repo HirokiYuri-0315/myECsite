@@ -27,12 +27,13 @@ table {
 	/* ========ID LAYOUT======== */
 #top {
 	clear: both;
-	width: 95%;
-	min-width: 780px;
+	width: 94%;
+	min-width: 960px;
 	height: auto;
-	margin: 20px auto;
+	margin-top: 20px;
 	margin-bottom: 50px;
-	padding: auto 0;
+	margin-right: 20px;
+	margin-left: 20px;
 	border-top: 2px solid #7cf;
 	border-bottom: 2px solid #7cf;
 /*	background-color: #66ff66; */
@@ -48,6 +49,7 @@ table {
 #main {
 	clear: left;
 	width: 100%;
+	min-width: 1000px;
 	height; auto;
 	padding-top: 10px;
 	text-align: center;
@@ -57,9 +59,10 @@ table {
 
 #footer {
 	clear: both;
+	min-width: 1000px;
 	width: 100%;
 	height: 60px;
-	background-color: black;
+	background-color: #02041f;
 	color: white;
 	text-align: center;
 	line-height: 60px;
@@ -115,14 +118,19 @@ table {
 	display: table-cell;
 	float: left;
 	width : 100%;
-	min-width : 600px;
+	min-width : 1000px;
 	height: 70px;
 	line-height: 70px;
 	padding: 0;
 	margin: 0;
-	background-color: #dddddd;
-	margin-left: 120px;
+	background-color: #669fe6;
+	padding-left: 0px;
 	vertical-align: middle;
+}
+#logo_space{
+	float: left;
+	width:120px;
+	height:70px;
 }
 
 #memo {
@@ -131,7 +139,7 @@ table {
 
 .submit_btn{
 	float: left;
-	width: 100px;
+	width: 110px;
 	height: 50px;
 	font-size: 16px;
 	text-align: center;
@@ -142,6 +150,7 @@ table {
 	margin-top: 10px;
     background-color:#c9e9ff;
 	vertical-align: middle;
+ 	outline: none;
 }
 .submit_btn_side{
 	float: left;
@@ -179,6 +188,7 @@ table {
 
 #rightMenu {
 	position: fixed;
+	z-index: 10;
 	top: 5px;
 	right: 5px;
 	text-align: right;
@@ -201,6 +211,7 @@ table {
 
 #rightHideBox {
 	position: fixed;
+	z-index: 10;
 	top: 80px;
 	right: -250px;
 	width: 120px;
@@ -221,7 +232,7 @@ table {
 	position: absolute;
 	top: 63px;
 	left: -250px;
-	width: 180px;
+	width: auto;
 	padding: 5px;
 	border: 2px solid #222222;
 	border-radius: 5px;
@@ -342,10 +353,16 @@ table#item_info td{
 }
 
 /* ========新しい商品一覧ページ用======== */
+#item_search, #hit{
+	display: inline-block;
+	width: 1000px;
+	text-align: center;
+	padding-bottom: 20px;
+}
 #newItemList{
 	display: inline-block;
 	width: 1000px;
-	text-align: center
+	text-align: center;
 }
 #hiddenBox{
 	display: inline-block;
@@ -369,7 +386,7 @@ table#item_info td{
 	animation-delay: 0s;
 	animation-iteration-count: 1;
 	animation-direction: alternate;
-	animation-fill-mode: none;
+	animation-fill-mode: both;
 	animation-play-state: running;
 }
 
@@ -406,6 +423,9 @@ table#item_info td{
 }
 
 /* ======== マイページ用 ======== */
+table#mypage_table{
+	margin-bottom: 20px;
+}
 #mypage_item_image_box{
 	display: table-cell;
 	width: 45px;
@@ -465,8 +485,8 @@ table#item_info td{
 }
 .buttunLine {
 	display: inline-block;
-	width: 150px;
-	margin-top: -10px;
+	width: 230px;
+	margin-top: 10px;
 }
 .doButton {
 	text-size: 12px;
@@ -493,6 +513,25 @@ table#item_info td{
 	vertical-align: middle;
 }
 
+table#buy_item tr, table#buy_item td{
+	margin: 3px;
+	border: 1px solid #999999;
+}
+#common_btn_box{
+	display: inline-block;
+	text-align: center;
+}
+table#pre_list td{
+	height:50px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+#list_item_image{
+	max-width: 50px;
+	max-height: 50px;
+	width: auto;
+	height: auto;
+}
 @keyframes huriko {
 	0% {
 		transform: rotate(0deg);

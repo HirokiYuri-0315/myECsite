@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.orgecsite.dao.ItemDataDAO;
 import com.internousdev.orgecsite.dto.ItemDataDTO;
 import com.internousdev.orgecsite.dto.PaginationDTO;
 import com.internousdev.orgecsite.util.Pagination;
@@ -14,14 +15,22 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ShiftItemPageAction extends ActionSupport implements SessionAware {
 
 	public Map<String, Object> session;
-	private ArrayList<ItemDataDTO> newItemList;
+	private ItemDataDAO itemDataDAO = new ItemDataDAO();
+	private ArrayList<ItemDataDTO> newItemList = new ArrayList<ItemDataDTO>();
 	private Pagination pagination = new Pagination();
 	private String pageNo;
+	private String categoryId;
 
 	public String execute() throws SQLException{
 		String result;
 
-		newItemList = (ArrayList<ItemDataDTO>)session.get("newItemList");
+		if(session.containsKey("newItemList")){
+			newItemList = (ArrayList<ItemDataDTO>)session.get("newItemList");
+		}else{
+			newItemList = itemDataDAO.getNewItemDataInfo();
+			// 全商品の情報を newItemList にセットした。
+			session.put("newItemList", newItemList);
+		}
 
 		// ページ情報を取得。上で得た商品情報productInfoListを利用。1ページあたりの表示数9に設定。
 		int pageSize = 9;
@@ -29,7 +38,7 @@ public class ShiftItemPageAction extends ActionSupport implements SessionAware {
 		PaginationDTO paginationDTO = pagination.getPage(newItemList, pageSize, pNo);
 		session.put("totalPageSize", paginationDTO.getTotalPageSize());
 		session.put("currentPageNo", paginationDTO.getCurrentPageNo());
-		session.put("totalRecordSize", paginationDTO.getTotalPageSize());
+		session.put("totalRecordSize", paginationDTO.getTotalRecordSize());
 		session.put("startRecordNo", paginationDTO.getStartRecordNo());
 		session.put("endRecordNo", paginationDTO.getEndRecordNo());
 		session.put("pageNumberList", paginationDTO.getPageNumberList());
@@ -54,6 +63,14 @@ public class ShiftItemPageAction extends ActionSupport implements SessionAware {
 
 	public void setPageNo(String pageNo) {
 		this.pageNo = pageNo;
+	}
+
+	public String getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
 	}
 
 

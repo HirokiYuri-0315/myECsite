@@ -18,7 +18,7 @@ public class GoMasterUpdateItemInfoAction extends ActionSupport implements Sessi
 
 	// 次の画面で商品選択をするので、itemList を準備する。
 	public String execute() throws SQLException {
-		setItemList(itemDataDAO.getItemDataInfo());
+		setItemList(itemDataDAO.getNewItemDataInfo());
 		session.put("itemList", itemList);
 		return SUCCESS;
 	}

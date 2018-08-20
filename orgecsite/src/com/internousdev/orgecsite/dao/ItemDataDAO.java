@@ -15,7 +15,7 @@ public class ItemDataDAO {
 	private DBConnector dbConnector = new DBConnector();
 	private Connection connection = dbConnector.getConnection();
 
-	// itemList用。最初にやったやつ。
+	// itemList用。最初にやったもの。
 	public ArrayList<ItemDataDTO> getItemDataInfo() throws SQLException {
 		ArrayList<ItemDataDTO> itemDataDTO = new ArrayList<ItemDataDTO>();
 		String sql="SELECT id, item_name, item_price, item_stock FROM item_info_transaction";
@@ -46,7 +46,7 @@ public class ItemDataDAO {
 	// newItemList.jspのために頑張る。GoNewItemListAction
 	public ArrayList<ItemDataDTO> getNewItemDataInfo() throws SQLException {
 		ArrayList<ItemDataDTO> itemDataDTO = new ArrayList<ItemDataDTO>();
-		String sql="SELECT id, item_name, item_release_company, item_price, image_file_path, image_file_name FROM item_info_transaction";
+		String sql="SELECT id, item_name, item_stock, item_release_company, item_price, image_file_path, image_file_name FROM item_info_transaction";
 		// 商品のリストから商品ID、商品名、発売元、価格、画像ファイルパス、画像ファイル名の情報を全て引き出すsql文
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -57,6 +57,7 @@ public class ItemDataDAO {
 				ItemDataDTO idto = new ItemDataDTO();
 				idto.setId(rs.getInt("id"));
 				idto.setItemName(rs.getString("item_name"));
+				idto.setItemStock(rs.getInt("item_stock"));
 				idto.setItemReleaseCompany(rs.getString("item_release_company"));
 				idto.setItemPrice(rs.getString("item_price"));
 				idto.setImageFilePath(rs.getString("image_file_path"));
@@ -91,6 +92,56 @@ public class ItemDataDAO {
 			if(!(searchCategoryId.equals("0"))){
 				ps.setString(2, searchCategoryId);
 			}
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()){
+				ItemDataDTO idto = new ItemDataDTO();
+				idto.setId(rs.getInt("id"));
+				idto.setItemName(rs.getString("item_name"));
+				idto.setItemReleaseCompany(rs.getString("item_release_company"));
+				idto.setItemPrice(rs.getString("item_price"));
+				idto.setImageFilePath(rs.getString("image_file_path"));
+				idto.setImageFileName(rs.getString("image_file_name"));
+				// 1行ずつ情報を書き込んでいく。
+				itemDataDTO.add(idto);
+			}
+			// 取得された情報が itemDataDTO にセットされる。
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			con.close();
+		}
+		return itemDataDTO;
+	}
+
+	// 複数キーワード検索用。SearchCategoryKeywordAction
+	public ArrayList<ItemDataDTO> searchItemByKeywords(String searchCategoryId, String[] keywordList) throws SQLException {
+		ArrayList<ItemDataDTO> itemDataDTO = new ArrayList<ItemDataDTO>();
+		String sql = "SELECT id, item_name, item_release_company, item_price, image_file_path, image_file_name FROM item_info_transaction";
+		boolean iFlg = true;
+
+		for(String keyword : keywordList){
+			// キーワードにスペースが複数続けて入力されkeywordListが生成されている場合を考慮。
+			if(!(keyword.trim()).equals("")){
+				if(iFlg){
+					sql += " WHERE (item_name like '%" + keyword.trim() + "%' or item_name_kana like '%" + keyword.trim() + "%')";
+					iFlg = false;
+				}else{
+					sql += " OR (item_name like '%" + keyword.trim() + "%' or item_name_kana like '%" + keyword.trim() + "%')";
+				}
+			}
+		}
+		if(!(searchCategoryId.equals("0"))){
+			if(iFlg){
+				sql += " WHERE category_id = " + searchCategoryId;
+			}else{
+				sql += " AND category_id = " + searchCategoryId;
+			}
+		}
+		// 商品のリストから商品ID、商品名、発売元、価格、画像ファイルパス、画像ファイル名の情報を全て引き出すsql文
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				ItemDataDTO idto = new ItemDataDTO();

@@ -60,6 +60,10 @@
 						</tr>
 					</s:iterator>
 				</table>
+
+				現金払いの合計金額：<s:property value="cashTotalPrice"/><span>円</span><br>
+				クレジットカード払いの合計金額：<s:property value="creditTotalPrice"/><span>円</span>
+
 				<s:form action="CartSettleConfirmAction">
 					<s:submit value="決済を完了する" method="execute" />		<!-- 変更済み -->
 				</s:form>

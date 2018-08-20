@@ -77,9 +77,9 @@ INSERT INTO item_info_transaction(item_name,item_name_kana,item_price,item_stock
 ("サンプル16","さんぷる16",150,10,"商品詳細",1,"img_maruyoko.jpg"),
 ("定規","じょうぎ",110,100,"商品詳細",2,"bunbougu_jougi.png");
 
-INSERT INTO login_user_transaction(login_id,login_pass,user_name) VALUES("internous","internous01","test");
-INSERT INTO login_user_transaction(login_id,login_pass,user_name) VALUES("taro","123","yamadataro");
-INSERT INTO login_master_user_transaction(login_id,login_pass,user_name) VALUES("root","masterAkira","test");
+INSERT INTO login_user_transaction(login_id,login_pass,user_name) VALUES("guest","guest","テストユーザー");
+INSERT INTO login_user_transaction(login_id,login_pass,user_name) VALUES("taro","123","山田太郎");
+INSERT INTO login_master_user_transaction(login_id,login_pass,user_name) VALUES("root","masterAkira","admin");
 
 
 drop table if exists cart_info;

@@ -37,7 +37,7 @@
 
 	<div id="main">
 		<div id="top">
-			<p>BuyItemConfirm</p>
+			<p>購入内容確認画面</p>
 		</div>
 		<div>
 			<s:form id="do">
@@ -62,22 +62,20 @@
 					<td>支払い方法</td>
 					<td><s:property value="session.pay"/></td>
 				</tr>
-				<tr>
-					<td><br></td>
-				</tr>
 <!--				<tr>
 					<td><input type="button" value="戻る" onclick="submitAction('HomeAction')"/></td>	<!-- HomeAction => GoHomeAction -->
 <!--					<td><input type="button" value="完了" onclick="submitAction('BuyItemConfirmAction');"/></td>
 				</tr> -->
 			</s:form>
-
+<div><br>以上でよろしいですか？<br></div>
 				<div class="buttunLine">
 				<ul>
 					<li><s:form id="do" action="GoNewItemListAction"><s:submit class="doButton" value="キャンセル"/></s:form></li>
-					<li><s:form id="do" action="BuyItemConfirmAction"><s:submit class="doButton" value="完了"/></s:form></li>
+<%-- 					<li><s:form id="do" action="BuyItemConfirmAction"><s:submit class="doButton" value="購入完了する"/></s:form></li> --%>
+					<li><s:form id="do" action="BuyItemCartAction"><s:submit class="doButton" value="カートに入れる"/></s:form></li>
 				</ul>
 				</div>
-			<a href='<s:url action="BuyItemCartAction" />'>カートに入れる</a>
+<%-- 			<a href='<s:url action="BuyItemCartAction" />'>カートに入れる</a> --%>
 		</div>
 	</div>
 

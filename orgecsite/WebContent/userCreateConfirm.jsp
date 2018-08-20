@@ -23,7 +23,7 @@
 
 	<div id="main">
 		<div id="top">
-			<p>UserCreateConfirm</p>
+			<p>ユーザー登録確認画面</p>
 		</div>
 		<div id="form-frame">
 			<h3>登録する内容は以下でよろしいですか。</h3>

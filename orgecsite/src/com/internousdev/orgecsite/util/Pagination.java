@@ -84,7 +84,7 @@ public class Pagination{
 		int d = (a+b-1)/b;
 		paginationDTO.setTotalPageSize(d);	// 全ページ数3
 		paginationDTO.setCurrentPageNo(1);												// 現在のページ番号1
-		paginationDTO.setTotalRecordSize(productList.size() - 1);						// 商品情報数20
+		paginationDTO.setTotalRecordSize(productList.size());						// 商品情報数20
 		paginationDTO.setStartRecordNo((pageSize * (1 - 1)) + 1);						// 1番目の商品から表示
 		paginationDTO.setEndRecordNo(paginationDTO.getStartRecordNo() + pageSize - 1);	// 9番目の商品まで表示
 

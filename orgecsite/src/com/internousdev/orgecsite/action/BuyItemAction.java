@@ -37,7 +37,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 		// 購入確認画面へ進むかどうかの判定。
 		if(nowStock-intCount < 0){
 			result = "error";
-			setErrorMessage("[!]在庫より多く買い求めようとしてはいけません。");
+			setErrorMessage("[!]在庫数が不足しています。");
 		}else if(session.containsKey("login_flg")){
 			result = SUCCESS;
 		}else{

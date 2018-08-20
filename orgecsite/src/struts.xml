@@ -17,11 +17,13 @@
 	<!-- GoCartAction  -->
 	<action name="GoCartAction" class="com.internousdev.orgecsite.action.GoCartAction" method="execute">
 		<result name="success">cart.jsp</result>
+		<result name="error">login.jsp</result>
 	</action>
 
 	<!-- GoCartSettleAction  -->
 	<action name="GoCartSettleAction" class="com.internousdev.orgecsite.action.GoCartSettleAction" method="execute">
 		<result name="success">cartSettleConfirm.jsp</result>
+		<result name="error">login.jsp</result>
 	</action>
 
 	<!-- GoLoginAction  -->
@@ -62,6 +64,7 @@
 	<!-- GoItemDetailAction -->
 	<action name="GoItemDetailAction" class="com.internousdev.orgecsite.action.GoItemDetailAction">
 		<result name="success">selectItemDetail.jsp</result>
+		<result name="error">home.jsp</result>
 	</action>
 
 	<!-- HomeAction -->
@@ -149,13 +152,10 @@
 		<!-- result name="back"??? -->
 	</action>
 
-	<!-- BuyItemCompleteAction って必要？ -->
-
-
 	<!-- MyPageAction2	追加 -->
 	<action name="MyPageAction2" class="com.internousdev.orgecsite.action.MyPageAction2" method="execute2">
 		<result name="success">myPage.jsp</result>
-		<result name="error">myPageError.jsp</result>	<!-- error.jsp が無いので勝手に設定。 -->
+		<result name="error">myPageError.jsp</result>
 	</action>
 
 
@@ -225,9 +225,9 @@
 	</action>
 
 	<!-- TestAction -->
-	<action name="TestAction" class="com.internousdev.orgecsite.action.TestAction" method="execute">
-		<result name="success">testPage2.jsp</result>
-	</action>
+<!-- 	<action name="TestAction" class="com.internousdev.orgecsite.action.TestAction" method="execute"> -->
+<!-- 		<result name="success">testPage2.jsp</result> -->
+<!-- 	</action> -->
 
 	</package>
 

@@ -76,6 +76,56 @@ public class CartInfoDAO {
 		return cartInfoDTOList;
 	}
 
+	// 合計金額の算出
+	public int calculateCashPrice(String userId) throws SQLException{
+		int totalPrice = 0;
+		String payment = "'現金払い'";
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+		String sql = "Select"
+				+ " total_price"
+				+ " FROM cart_info"
+				+ " WHERE user_id = ? AND pay = "
+				+ payment;
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, userId);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()){
+				totalPrice += rs.getInt("total_price");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			con.close();
+		}
+		return totalPrice;
+	}
+	public int calculateCreditPrice(String userId) throws SQLException{
+		int totalPrice = 0;
+		String payment = "'クレジットカード'";
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+		String sql = "Select"
+				+ " total_price"
+				+ " FROM cart_info"
+				+ " WHERE user_id = ? AND pay = "
+				+ payment;
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, userId);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()){
+				totalPrice += rs.getInt("total_price");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			con.close();
+		}
+		return totalPrice;
+	}
+
 
 	// 決済　CartSettleConfirmAction
 	public ArrayList<String> kessai(ArrayList<CartInfoDTO> cartInfoDTOList) throws SQLException{

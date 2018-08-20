@@ -27,8 +27,14 @@ public class SearchCategoryKeywordAction extends ActionSupport implements Sessio
 	public String execute() throws SQLException{
 		String result;
 		String searchCategoryId = categoryId;
-		String searchKeyword = "%"+ keyword +"%";
-		setNewItemList(itemDataDAO.searchNewItemDataInfo(searchCategoryId, searchKeyword));
+
+//		String searchKeyword = "%"+ keyword +"%";
+//		setNewItemList(itemDataDAO.searchNewItemDataInfo(searchCategoryId, searchKeyword));
+//		// 検索結果を newItemList にセットした。
+//		session.put("newItemList", newItemList);
+
+		String[] keywordList = keyword.replaceAll("　"," ").split(" ");
+		setNewItemList(itemDataDAO.searchItemByKeywords(searchCategoryId, keywordList));
 		// 検索結果を newItemList にセットした。
 		session.put("newItemList", newItemList);
 
@@ -37,7 +43,7 @@ public class SearchCategoryKeywordAction extends ActionSupport implements Sessio
 		PaginationDTO paginationDTO = pagination.initialize(newItemList, pageSize);
 		session.put("totalPageSize", paginationDTO.getTotalPageSize());
 		session.put("currentPageNo", paginationDTO.getCurrentPageNo());
-		session.put("totalRecordSize", paginationDTO.getTotalPageSize());
+		session.put("totalRecordSize", paginationDTO.getTotalRecordSize());
 		session.put("startRecordNo", paginationDTO.getStartRecordNo());
 		session.put("endRecordNo", paginationDTO.getEndRecordNo());
 		session.put("pageNumberList", paginationDTO.getPageNumberList());

@@ -17,8 +17,9 @@ public class GoMasterAddStockAction extends ActionSupport implements SessionAwar
 	public ArrayList<ItemDataDTO> itemList = new ArrayList<ItemDataDTO>();
 
 	public String execute() throws SQLException {
-		setItemList(itemDataDAO.getItemDataInfo());
+		setItemList(itemDataDAO.getNewItemDataInfo());
 		session.put("itemList", itemList);
+
 
 		String result = SUCCESS;
 		return result;

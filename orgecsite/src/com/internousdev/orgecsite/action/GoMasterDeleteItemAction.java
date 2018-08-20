@@ -18,7 +18,7 @@ public class GoMasterDeleteItemAction extends ActionSupport implements SessionAw
 
 
 	public String execute() throws SQLException {
-		setItemList(itemDataDAO.getItemDataInfo());
+		setItemList(itemDataDAO.getNewItemDataInfo());
 		session.put("itemList", itemList);
 		return SUCCESS;
 	}

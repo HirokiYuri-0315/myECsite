@@ -26,7 +26,7 @@
 
 	<div id="main">
 		<div id="top">
-			<p>Login</p>
+			<p>ログイン画面</p>
 		</div>
 		<div id="form-frame">
 			<h3>商品を購入する際にはログインをお願いします。</h3>

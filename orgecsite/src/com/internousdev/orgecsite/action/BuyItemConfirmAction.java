@@ -32,12 +32,10 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 		if(session.get("login_user_id").equals(null)){
 			result = "loginError";
 		}else{
-		System.out.println("==<>--<>==");
 		// 購入情報の書き込みと、在庫数の変動処理を合わせて行う。
 		int new_stock = Integer.parseInt(session.get("newStock").toString());
 		buyItemCompleteDAO.buyItemInfoStock(session.get("id").toString(), session.get("login_user_id").toString(), session.get("total_price").toString(), session.get("count").toString(), session.get("pay").toString(), new_stock);
 
-		System.out.println("==<>--<>==");
 		result = SUCCESS;
 		}
 		return result;
