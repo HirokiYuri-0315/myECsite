@@ -14,17 +14,17 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 	<script type="text/javascript" src="./footerFixed.js"></script> -->
 
-<title>UpdateItemInfoSelect</title>
+<title>商品情報編集選択</title>
 </head>
 <body>
 
 
 	<div id="main">
 		<div id="top">
-			<p>selectUpdateItem</p>
+			<p>商品情報編集選択画面</p>
 		</div>
 		<div>
-			<h3>商品の一覧を表示</h3>
+			<h3>編集する商品を選択してください</h3>
 			<s:form action="MasterUpdateItemInfoSelectAction" method="execute">
 			<table id="pre_list" border="1">
 				<tr>
@@ -45,7 +45,7 @@
 				</s:iterator>
 			</table>
 <br>
-			<div>編集する商品を選んでください。</div>
+<!-- 			<div>編集する商品を選んでください。</div> -->
 <br>
 
 			<input type="submit" value="編集する">

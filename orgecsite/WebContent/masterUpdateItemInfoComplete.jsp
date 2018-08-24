@@ -15,7 +15,7 @@
 
 	<script type="text/javascript" src="./footerFixed.js"></script>
 
-	<title>完了画面</title>
+	<title>商品情報変更完了</title>
 </head>
 <body>
 	<div id="header">
@@ -25,7 +25,7 @@
 
 	<div id="main">
 		<div id="top">
-			<p>MasterUpdateItemInfo</p>
+			<p>商品情報編集完了画面</p>
 		</div>
 
 	<!-- プレビューを表示したい -->

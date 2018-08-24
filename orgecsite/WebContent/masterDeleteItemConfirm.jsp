@@ -14,7 +14,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="./js/footerFixed.js"></script>
 
-	<title>MasterDeleteItemConfirm画面</title>
+	<title>削除する商品の確認</title>
 
 
 </head>
@@ -26,43 +26,64 @@
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>MasterAddItemConfirm</p>
+			<p>商品削除確認画面</p>
 		</div>
 		<div>
-			<h3>削除する商品は以下で間違いありませんか。</h3>
-			<table>
-				<s:form action="MasterDeleteItemCompleteAction">
-					<tr id="box">
-						<td>
-							<label>商品ID:</label>
-						</td>
-						<td>
-							<s:property value="session.deleteId" escape="false" />
-						</td>
+			<h3>削除する商品は以下で間違いありませんか？</h3>
+		<div id="item_detail">
+			<div id="left_box">
+				<table>
+				<tr>
+					<th scope="col">商品画像</th>
+				</tr>
+				<tr>
+					<td><div id="item_image_box"> <img id="item_image" src="<s:property value='session.selectImageFilePath'/>/<s:property value='session.selectImageFileName'/>"></div></td>
+				</tr>
+				</table>
+			</div>
+
+			<div id="right_box">
+				<h2>～ 商品情報 ～</h2>
+				<table id="item_info" border="">
+					<tr>
+						<th scope="row">商品ID</th>
+						<td><s:property value="session.selectId"/></td>
 					</tr>
-					<tr id="box">
-						<td>
-							<label>商品名:</label>
-						</td>
-						<td>
-							<s:property value="session.deleteItemName" escape="false" />
-						</td>
+					<tr>
+						<th scope="row">商品名</th>
+						<td><s:property value="session.selectItemName"/></td>
 					</tr>
-					<tr id="box">
+					<tr>
+						<th scope="row">よみがな</th>
+						<td><s:property value="session.selectItemNameKana"/></td>
+					</tr>
+					<tr>
+						<th scope="row">値段</th>
+						<td><s:property value="session.selectItemPrice"/><span>円</span></td>
+					</tr>
+					<tr>
+						<th scope="row">在庫数</th>
+						<td><s:property value="session.selectItemStock"/></td>
+					</tr>
+					<tr>
+						<th scope="row">発売元</th>
+						<td><s:property value="session.selectItemReleaseCompany"/></td>
+					</tr>
+					<tr>
+						<th scope="row">商品カテゴリ</th>
 						<td>
-							<label>価格:</label>
-						</td>
-						<td>
-							<s:property value="session.deleteItemPrice" escape="false" /><span>円</span>
+							<s:if test="#session.selectCategoryId == 1">カテゴリなし</s:if>
+							<s:elseif test="#session.selectCategoryId == 2">文房具</s:elseif>
 						</td>
 					</tr>
 					<tr>
-						<td>
-							<s:submit value="削除する" />
-						</td>
+						<th scope="row">商品詳細</th>
+						<td height="52"><s:property value="session.selectItemDescription"/></td>
 					</tr>
-				</s:form>
-			</table>
+				</table>
+			</div>
+		</div>
+		<s:form action="MasterDeleteItemCompleteAction"><s:submit value="削除する" /></s:form>
 		</div>
 
 			<div>

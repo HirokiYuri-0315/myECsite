@@ -27,7 +27,7 @@
 
 	<div id="main">
 		<div id="top">
-			<p>MasterUpdateItemInfo</p>
+			<p>編集内容確認画面</p>
 		</div>
 
 	<!-- プレビューを表示したい -->

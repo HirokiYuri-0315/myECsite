@@ -14,7 +14,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="./js/footerFixed.js"></script>
 
-	<title>MasterAddItemConfirm画面</title>
+	<title>商品追加内容確認画</title>
 
 
 </head>
@@ -26,7 +26,7 @@
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>MasterAddItemConfirm</p>
+			<p>商品追加内容確認画面</p>
 		</div>
 		<div>
 			<h3>登録する内容は以下でよろしいですか。</h3>

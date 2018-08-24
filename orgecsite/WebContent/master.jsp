@@ -13,7 +13,7 @@
 	<!-- jQueryのやつ。 -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="./js/footerFixed.js"></script>
-	<title>Master画面</title>
+	<title>管理画面</title>
 
 </head>
 
@@ -21,7 +21,7 @@
 
 	<div id="main">
 		<div id="top">
-			<p>Master</p>
+			<p>管理画面</p>
 		</div>
 		<div>
 

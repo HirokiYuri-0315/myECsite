@@ -13,7 +13,7 @@
 	<!-- jQueryのやつ。 -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="./js/footerFixed.js"></script>
-	<title>deleteItem画面</title>
+	<title>商品の削除</title>
 
 
 </head>
@@ -26,10 +26,10 @@
 
 	<div id="main">
 		<div id="top">
-			<p>deleteItem</p>
+			<p>商品削除画面</p>
 		</div>
 		<div>
-			<h3>商品の一覧を表示</h3>
+			<h3>削除する商品を選択してください</h3>
 			<s:form action="MasterDeleteItemConfirmAction" method="execute">
 			<table id="pre_list" border="1">
 				<tr>

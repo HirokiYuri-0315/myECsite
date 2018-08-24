@@ -14,17 +14,17 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="./footerFixed.js"></script>
 
-<title>MasterAddStockSelect</title>
+<title>在庫数変更</title>
 </head>
 <body>
 
 
 	<div id="main">
 		<div id="top">
-			<p>selectItem</p>
+			<p>在庫数変更選択画面</p>
 		</div>
 		<div>
-			<h3>商品の一覧を表示</h3>
+			<h3>在庫数の修正を行う商品を選択してください</h3>
 
 			<s:form action="MasterAddStockConfirmAction" method="execute">
 			<table id="pre_list" border="1">
@@ -46,7 +46,7 @@
 				</s:iterator>
 			</table>
 <br>
-			<div>追加する数を半角数字で入力してください<br>
+			<div>追加する在庫数を半角数字で入力してください<br>
 			（減らしたい場合は -5 のように入力してください）</div>
 <br>
 				<tr>

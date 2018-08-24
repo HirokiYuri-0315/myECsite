@@ -24,7 +24,7 @@
 
 	<div id="main">
 		<div id="top">
-			<p>MasterAddStockConfirm</p>
+			<p>在庫数変更内容確認画面</p>
 		</div>
 		<div>
 			<table>

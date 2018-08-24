@@ -14,7 +14,7 @@
 <body>
 	<div id="footer">
 		<div>
-			Copyright 2018 ecsite-plus all rights reserved.
+			Copyright 2018 orgECsite all rights reserved.
 		</div>
 	</div>
 </body>

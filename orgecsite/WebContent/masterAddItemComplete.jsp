@@ -14,7 +14,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="./js/footerFixed.js"></script>
 
-	<title>MasterAddItemComplete画面</title>
+	<title>商品追加完了</title>
 
 
 </head>
@@ -27,7 +27,7 @@
 
 	<div id="main">
 		<div id="top">
-			<p>MasterAddItemComplete</p>
+			<p>商品追加完了画面</p>
 		</div>
 		<div>
 			<h3>新しい商品の登録が完了致しました。</h3>

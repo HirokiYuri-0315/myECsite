@@ -27,9 +27,9 @@
 
 	<div id="main">
 		<div id="top">
-			<p>MasterUpdateItemInfo</p>
+			<p>商品情報編集画面</p>
 		</div>
-
+		<h3>現在の商品詳細情報がこちらです</h3>
 	<!-- 現在の商品情報を表示したい -->
 		<div id="item_detail">
 			<div id="left_box">
