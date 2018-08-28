@@ -18,11 +18,15 @@ public class CartSettleConfirmAction extends ActionSupport implements SessionAwa
 
 	@SuppressWarnings("unchecked")
 	public String execute() throws SQLException {
-		String result;
+		String result = ERROR;
 
+		if(!session.containsKey("cartInfoDTOList")){
+			return result;
+		}
 		cartInfoDTOList = (ArrayList<CartInfoDTO>)session.get("cartInfoDTOList");
 		// 決済する。
 		setErrorMessageList(cartInfoDAO.kessai(cartInfoDTOList));
+		session.remove("cartInfoDTOList");
 
 		result = SUCCESS;
 		return result;

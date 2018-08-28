@@ -20,7 +20,6 @@
 </head>
 
 <body>
-<!-- <div id="full_box"> -->
 	<jsp:include page="./header.jsp"/>
 
 	<div id="main">
@@ -31,13 +30,13 @@
 <%-- 			<s:form action="HomeAction"> --%>
 <%-- 				<s:submit value="商品購入" /> --%>
 <%-- 			</s:form> --%>
-			<s:if test="#session.login_user_id != null">	<!-- #session => session -->
+			<s:if test="#session.login_user_id != null">
 				<h3>こんにちは、<s:property value="#session.login_user_name"/>さん。</h3><br>
 			<br>
 				<p>ログアウトする場合は
 					<a href='<s:url action="LogoutAction" />'>こちら</a></p>
 			</s:if>
-			<s:if test="#session.login_user_id == null">	<!-- #session => session -->
+			<s:if test="#session.login_user_id == null">
 				<h3>こんにちは、ゲストさん。</h3><br>
 				<br>
 				<p>ログインは
@@ -45,7 +44,7 @@
 			</s:if>
 		</div>
 	</div>
-<!-- </div> -->
+
 	<jsp:include page="./footer.jsp"/>
 
 </body>

@@ -18,12 +18,7 @@ public class LoginAction2 extends ActionSupport implements SessionAware {
 	private String loginUserId;
 	private String loginPassword;
 	public Map<String, Object> session;
-	private LoginDAO loginDAO = new LoginDAO();
-	private LoginDTO loginDTO = new LoginDTO();
-	private LoginMasterDAO loginMasterDAO = new LoginMasterDAO();
-	private LoginDTO loginMDTO = new LoginDTO();
 
-	private ItemDataDAO itemDataDAO = new ItemDataDAO();
 	public ArrayList<ItemDataDTO> itemList;
 
 	private String errorMessage;
@@ -32,10 +27,14 @@ public class LoginAction2 extends ActionSupport implements SessionAware {
 	public String execute() throws SQLException {
 		String result = ERROR;
 		setErrorMessage("");
+		LoginDAO loginDAO = new LoginDAO();
+		LoginDTO loginDTO = new LoginDTO();
 		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
 		session.put("loginUser", loginDTO);
 
 		// MASTER画面へのログイン用に追加。
+		LoginMasterDAO loginMasterDAO = new LoginMasterDAO();
+		LoginDTO loginMDTO = new LoginDTO();
 		loginMDTO = loginMasterDAO.getLoginUserInfo(loginUserId, loginPassword);
 		session.put("loginMUser", loginMDTO);
 
@@ -53,6 +52,7 @@ public class LoginAction2 extends ActionSupport implements SessionAware {
 			session.put("login_flg", loginDTO.getLoginFlg());
 			/* 通常のログインに成功したら商品購入ページへと進むので、商品データの準備。 */
 			/* itemList を selectItem.jsp で表示したい。*/
+			ItemDataDAO itemDataDAO = new ItemDataDAO();
 			setItemList(itemDataDAO.getItemDataInfo());
 			session.put("itemList", itemList);
 		} else {

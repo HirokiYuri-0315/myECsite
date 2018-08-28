@@ -91,20 +91,17 @@
 	</action>
 
 
-	<!-- 商品購入機能 -->
+	<!-- 旧･商品購入機能 -->
 	<action name="BuyItemAction" class="com.internousdev.orgecsite.action.BuyItemAction" method="execute">
 		<result name="success">buyItemConfirm.jsp</result>
 		<result name="goLogin">loginBeforeBuy.jsp</result>
 		<result name="error">buyItem2.jsp</result>
-		<!-- result name="error"??? -->
 	</action>
 
 	<action name="BuyItemConfirmAction" class="com.internousdev.orgecsite.action.BuyItemConfirmAction" method="execute">
 		<result name="success">buyItemComplete.jsp</result>
 		<result name="loginError">error.jsp</result>
-		<!-- result name="back"??? -->
 	</action>
-
 
 
 	<!-- カート機能 -->
@@ -125,6 +122,7 @@
 
 	<action name="CartSettleConfirmAction" class="com.internousdev.orgecsite.action.CartSettleConfirmAction" method="execute">
 		<result name="success">cartSettleComplete.jsp</result>
+		<result name="error">home.jsp</result>
 	</action>
 
 
@@ -214,7 +212,6 @@
 	<action name="MasterUpdateItemInfoConfirmAction" class="com.internousdev.orgecsite.action.MasterUpdateItemInfoConfirmAction" method="execute">
 		<result name="success">masterUpdateItemInfoComplete.jsp</result>
 	</action>
-
 
 <!-- 	<action name="TestAction" class="com.internousdev.orgecsite.action.TestAction" method="execute"> -->
 <!-- 		<result name="success">testPage2.jsp</result> -->
