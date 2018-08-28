@@ -15,12 +15,12 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private String userName;
 	public Map<String, Object> session;
 	private String errorMessage;
-	private LoginDAO loginDAO = new LoginDAO();
-	private LoginDTO loginDTO = new LoginDTO();
 
 	public String execute() {
 
-		String result = SUCCESS;
+		String result = ERROR;
+		LoginDAO loginDAO = new LoginDAO();
+		LoginDTO loginDTO = new LoginDTO();
 		// ログインIDが他と被るとおかしくなるのでそれは避けたい。（ログインIDは固有のものにしたい）
 		loginDTO = loginDAO.checkLoginIdInfo(loginUserId);
 		String anotherId = loginDTO.getDoubleId();
@@ -34,6 +34,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("loginUserId", loginUserId);
 			session.put("loginPassword", loginPassword);
 			session.put("userName", userName);
+			result = SUCCESS;
 		} else {
 			setErrorMessage("[!] 未入力の項目があります。");
 			result = ERROR;
@@ -71,10 +72,6 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	}
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
-	}
-
-	public LoginDTO getLoginDTO() {
-		return loginDTO;
 	}
 
 }

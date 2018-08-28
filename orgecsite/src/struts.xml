@@ -41,6 +41,23 @@
 	</action>
 
 
+	<!-- ユーザー登録機能 -->
+	<action name="UserCreateAction" class="com.internousdev.orgecsite.action.UserCreateAction" method="execute">
+		<result name="success">userCreate.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+	<action name="UserCreateConfirmAction" class="com.internousdev.orgecsite.action.UserCreateConfirmAction" method="execute">
+		<result name="success">userCreateConfirm.jsp</result>
+		<result name="error">userCreate.jsp</result>
+	</action>
+
+	<action name="UserCreateCompleteAction" class="com.internousdev.orgecsite.action.UserCreateCompleteAction" method="execute">
+		<result name="success">userCreateComplete.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+
 	<!-- 商品一覧機能 -->
 	<action name="GoNewItemListAction" class="com.internousdev.orgecsite.action.GoNewItemListAction" method="execute">
 		<result name="success">newItemList.jsp</result>
@@ -68,22 +85,6 @@
 	<!-- 商品検索機能  -->
 	<action name="SearchCategoryKeywordAction" class="com.internousdev.orgecsite.action.SearchCategoryKeywordAction" method="execute">
 		<result name="success">newItemList.jsp</result>
-	</action>
-
-
-	<!-- ユーザー登録機能 -->
-	<action name="UserCreateAction" class="com.internousdev.orgecsite.action.UserCreateAction" method="execute">
-		<result name="success">userCreate.jsp</result>
-		<!-- result name="back"??? -->
-	</action>
-
-	<action name="UserCreateConfirmAction" class="com.internousdev.orgecsite.action.UserCreateConfirmAction" method="execute">
-		<result name="success">userCreateConfirm.jsp</result>
-		<result name="error">userCreate.jsp</result>
-	</action>
-
-	<action name="UserCreateCompleteAction" class="com.internousdev.orgecsite.action.UserCreateCompleteAction" method="execute">
-		<result name="success">userCreateComplete.jsp</result>
 	</action>
 
 
