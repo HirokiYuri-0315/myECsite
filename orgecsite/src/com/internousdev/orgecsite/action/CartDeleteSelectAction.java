@@ -17,7 +17,12 @@ public class CartDeleteSelectAction extends ActionSupport implements SessionAwar
 	private String checkEmptyC;
 
 	public String execute() throws SQLException{
-		String result;
+		String result = ERROR;
+		CartInfoDAO cartInfoDao = new CartInfoDAO();
+		String check = cartInfoDao.checkCartId(deleteId);
+		if(check.equals("false")){
+			return result;
+		}
 
 		// カート情報をひとつ削除する。
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();

@@ -111,6 +111,7 @@
 
 	<action name="CartDeleteSelectAction" class="com.internousdev.orgecsite.action.CartDeleteSelectAction" method="execute">
 		<result name="success">cart.jsp</result>
+		<result name="error">home.jsp</result>
 	</action>
 
 

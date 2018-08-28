@@ -176,7 +176,26 @@ public class CartInfoDAO {
 		}finally{
 			con.close();
 		}
+	}
 
+	public String checkCartId(String cartId) throws SQLException{
+		String result = "false";
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+		String sql = "select * from cart_info WHERE id = ?";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, cartId);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()){
+				result = "true";
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			con.close();
+		}
+		return result;
 	}
 
 	// 全削除
