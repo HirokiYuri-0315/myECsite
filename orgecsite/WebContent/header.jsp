@@ -123,6 +123,13 @@ function goNewItemListAction2(){
 				function(){
 					$("#menu_info_buy .menu_info_box").fadeOut(00);
 				});
+		$("#cart_btn").hover(
+				function(){
+					$("#menu_info_cart .menu_info_box").fadeIn(400).animate({left:"640px"},{duration:0,queue:false});
+				},
+				function(){
+					$("#menu_info_cart .menu_info_box").fadeOut(00);
+				});
 		$("#userCreate_btn").hover(
 				function(){
 					$("#menu_info_userCreate .menu_info_box").fadeIn(400).animate({left:"530px"},{duration:0,queue:false});
@@ -182,7 +189,7 @@ function goNewItemListAction2(){
 
 		<s:if test="#session.login_user_id != null">
 <%-- 			<s:submit value="商品購入" class="submit_btn" id="buy_btn" onclick="goBuyPageAction();"/> --%>
-			<s:submit value="カート" class="submit_btn" id="buy_btn" onclick="goCartAction();"/>
+			<s:submit value="カート" class="submit_btn" id="cart_btn" onclick="goCartAction();"/>
 		</s:if>
 		<s:else>
 			<s:submit value="新規登録" class="submit_btn" id="userCreate_btn" onclick="goUserCreateAction();"/>
@@ -223,6 +230,11 @@ function goNewItemListAction2(){
 <div id="menu_info_buy">
 	<div class="menu_info_box">
 		<a id="menu_info_sent">旧･商品選択画面へ移動します</a>
+	</div>
+</div>
+<div id="menu_info_cart">
+	<div class="menu_info_box">
+		<a id="menu_info_sent">カート画面へ移動します</a>
 	</div>
 </div>
 
