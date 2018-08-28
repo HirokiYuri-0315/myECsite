@@ -61,6 +61,7 @@
 	<!-- 商品一覧機能 -->
 	<action name="GoNewItemListAction" class="com.internousdev.orgecsite.action.GoNewItemListAction" method="execute">
 		<result name="success">newItemList.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<action name="SelectItemAction" class="com.internousdev.orgecsite.action.SelectItemAction" method="execute">
@@ -68,10 +69,12 @@
 		<result name="goDetail">selectItemDetail.jsp</result>
 		<result name="nullError">selectItem.jsp</result>
 		<result name="return">newItemList.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<action name="ShiftItemPageAction" class="com.internousdev.orgecsite.action.ShiftItemPageAction" method="execute">
 		<result name="success">newItemList.jsp</result>
+		<result name="error">newItemList.jsp</result>
 	</action>
 
 

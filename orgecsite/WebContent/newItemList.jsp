@@ -98,6 +98,7 @@
 						<a href="<s:url action='ShiftItemPageAction'>
 								<s:param name='pageNo' value='%{#pageNo.count}'/>
 								<s:param name='categoryId' value='%{categoryId}'/>
+								<s:param name='keyword' value='%{keyword}'/>
 								</s:url> ">
 
 							<s:property value="%{#pageNo.count}"/>

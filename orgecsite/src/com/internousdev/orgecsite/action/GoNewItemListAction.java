@@ -17,20 +17,18 @@ public class GoNewItemListAction extends ActionSupport implements SessionAware {
 
 	public Map<String, Object> session;
 	private ItemDataDAO itemDataDAO = new ItemDataDAO();
-	private ArrayList<ItemDataDTO> newItemList;
-	private List<ItemDataDTO> newItemPageList;
-
-	private Pagination pagination = new Pagination();
+	private ArrayList<ItemDataDTO> newItemList = new ArrayList<ItemDataDTO>();
+	private List<ItemDataDTO> newItemPageList = new ArrayList<ItemDataDTO>();
 
 	public String execute() throws SQLException{
-		String result;
+		String result = ERROR;
 		setNewItemList(itemDataDAO.getNewItemDataInfo());
 		// 全商品の情報を newItemList にセットした。
 		session.put("newItemList", newItemList);
 
-
 		// ページ情報を取得。上で得た商品情報productInfoListを利用。1ページあたりの表示数9に設定。
 		int pageSize = 9;
+		Pagination pagination = new Pagination();
 		PaginationDTO paginationDTO = pagination.initialize(newItemList, pageSize);
 		session.put("totalPageSize", paginationDTO.getTotalPageSize());
 		session.put("currentPageNo", paginationDTO.getCurrentPageNo());
@@ -38,12 +36,12 @@ public class GoNewItemListAction extends ActionSupport implements SessionAware {
 		session.put("startRecordNo", paginationDTO.getStartRecordNo());
 		session.put("endRecordNo", paginationDTO.getEndRecordNo());
 		session.put("pageNumberList", paginationDTO.getPageNumberList());
-		session.put("ItemInfoDtoList", paginationDTO.getCurrentProductInfoPage());
+		newItemPageList = paginationDTO.getCurrentProductInfoPage();
+		session.put("ItemInfoDtoList", newItemPageList);	//これを商品一覧画面で使用中
 		session.put("hasNextPage", paginationDTO.isHasNextPage());
 		session.put("hasPreviousPage", paginationDTO.isHasPreviousPage());
 		session.put("nextPageNo", paginationDTO.getNextPageNo());
 		session.put("previousPageNo", paginationDTO.getPreviousPageNo());
-
 
 		result = SUCCESS;
 		return result;

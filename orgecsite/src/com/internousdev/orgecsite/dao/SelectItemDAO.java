@@ -18,56 +18,62 @@ public class SelectItemDAO {
 	public SelectItemDTO getBuyItemInfo(String buyId) throws SQLException {
 
 		String sql = "SELECT id, item_name, item_price, item_stock from item_info_transaction where id = ?";
-
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, buyId);
-
 			ResultSet resultSet = preparedStatement.executeQuery();
-
 			if(resultSet.next()) {
 				selectItemDTO.setBuyItemName(resultSet.getString("item_name"));
 				selectItemDTO.setBuyItemPrice(resultSet.getString("item_price"));
 				selectItemDTO.setBuyItemStock(resultSet.getString("item_stock"));
 				selectItemDTO.setBuyId(resultSet.getString("id"));
-
 				System.out.println("====" + selectItemDTO.getBuyItemName());
 			}
-
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			connection.close();
 		}
-
 		return selectItemDTO;
-
 	}
 
 	public SelectItemDTO getDeleteItemInfo(String deleteId) {
 
 		String sql = "SELECT id, item_name, item_price from item_info_transaction where id = ?";
-
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, deleteId);
-
 			ResultSet resultSet = preparedStatement.executeQuery();
-
 			if(resultSet.next()) {
 				selectItemDTO.setDeleteItemName(resultSet.getString("item_name"));
 				selectItemDTO.setDeleteItemPrice(resultSet.getString("item_price"));
 				selectItemDTO.setDeleteId(resultSet.getString("id"));
 			}
-
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return selectItemDTO;
+	}
 
+	public String checkSelectId(String selectId) throws SQLException{
+		String result = "false";
+
+		DBConnector dbConnector = new DBConnector();
+		Connection con = dbConnector.getConnection();
+		String sql = "SELECT id from item_info_transaction where id = ?";
+		try {
+			PreparedStatement preparedStatement = con.prepareStatement(sql);
+			preparedStatement.setString(1, selectId);
+			ResultSet rs = preparedStatement.executeQuery();
+			if(rs.next()){
+				result = "true";
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			con.close();
+		}
+		return result;
 	}
 
 	public SelectItemDTO getSelectItemDTO() {

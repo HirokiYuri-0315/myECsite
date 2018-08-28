@@ -23,7 +23,14 @@ public class SelectItemAction extends ActionSupport implements SessionAware {
 	private ItemDataDAO itemDataDAO = new ItemDataDAO();
 
 	public String execute() throws SQLException {
-		String result;
+		String result = ERROR;
+
+		SelectItemDAO selectItemDao = new SelectItemDAO();
+		String check = selectItemDao.checkSelectId(buyId);
+		if(check.equals("false")){
+			return result;
+		}
+
 		// 受け取る値は buyId（商品ID）と buyOrInfo（詳細を見る or 購入へ進む）で、それらを元に分岐。
 		if(buyOrInfo.equals("3")){
 			// 購入画面へと進む準備。商品詳細ページからくるとき。
@@ -42,7 +49,7 @@ public class SelectItemAction extends ActionSupport implements SessionAware {
 
 			result = SUCCESS;
 		}else if(buyId == null ){
-			// 商品が選択されていない場合。
+			// 商品が選択されていない場合。初期の仕様で使用。
 			result="nullError";
 			setErrorMessage("[!] 商品を選択してください。");
 		}else if(buyOrInfo.equals("1")){

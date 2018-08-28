@@ -116,25 +116,44 @@ public class ItemDataDAO {
 	// 複数キーワード検索用。SearchCategoryKeywordAction
 	public ArrayList<ItemDataDTO> searchItemByKeywords(String searchCategoryId, String[] keywordList) throws SQLException {
 		ArrayList<ItemDataDTO> itemDataDTO = new ArrayList<ItemDataDTO>();
-		String sql = "SELECT id, item_name, item_release_company, item_price, image_file_path, image_file_name FROM item_info_transaction";
+		String sql = "SELECT * from item_info_transaction";
 		boolean iFlg = true;
-
-		for(String keyword : keywordList){
+		// 拡張for文。キーワードが1つか複数かにより、sql文が分岐するため記述。
+		for (String keyword : keywordList) {
 			// キーワードにスペースが複数続けて入力されkeywordListが生成されている場合を考慮。
-			if(!(keyword.trim()).equals("")){
-				if(iFlg){
-					sql += " WHERE (item_name like '%" + keyword.trim() + "%' or item_name_kana like '%" + keyword.trim() + "%')";
+			String trim_keyword = keyword.trim();
+			if (!trim_keyword.equals("")) {
+				// キーワードを1文字ずつ配列化してstrArrayとする。
+				String[] strArray = new String[trim_keyword.length()];
+				for (int i = 0; i < trim_keyword.length(); i++) {
+					strArray[i] = String.valueOf(trim_keyword.charAt(i));
+				}
+				// エスケープ処理のため、1文字ごとに?を挟み、keywordを組み直す。
+				String e_keyword = "";
+				for (String word : strArray) {
+					e_keyword += ("?" + word);
+				}
+				// 組み直したキーワードe_keywordを用いて検索。escape '?'でエスケープ処理。
+				if (iFlg) {
+					sql += " WHERE ((item_name like '%" + e_keyword + "%' escape '?' or item_name_kana like '%"
+							+ e_keyword + "%' escape '?')";
 					iFlg = false;
-				}else{
-					sql += " OR (item_name like '%" + keyword.trim() + "%' or item_name_kana like '%" + keyword.trim() + "%')";
+				} else {
+					sql += " OR (item_name like '%" + e_keyword + "%' escape '?' or item_name_kana like '%"
+							+ e_keyword + "%' escape '?')";
 				}
 			}
 		}
-		if(!(searchCategoryId.equals("0"))){
-			if(iFlg){
-				sql += " WHERE category_id = " + searchCategoryId;
-			}else{
-				sql += " AND category_id = " + searchCategoryId;
+		// カテゴリ検索。キーワードが空だった場合はANDではなくWHEREでつなぐ。
+		if(!searchCategoryId.equals("0")){
+			if (iFlg) {
+				sql += (" WHERE category_id = " + searchCategoryId);
+			} else {
+				sql += (") AND category_id = " + searchCategoryId);
+			}
+		}else{
+			if (!iFlg) {
+				sql += ")";
 			}
 		}
 		// 商品のリストから商品ID、商品名、発売元、価格、画像ファイルパス、画像ファイル名の情報を全て引き出すsql文
