@@ -26,7 +26,7 @@ public class SearchCategoryKeywordAction extends ActionSupport implements Sessio
 	private int totalRecordSize = 0;
 
 	public String execute() throws SQLException{
-		String result;
+		String result = ERROR;
 		String searchCategoryId = categoryId;
 
 //		String searchKeyword = "%"+ keyword +"%";
