@@ -23,6 +23,7 @@ public class LoginAction2 extends ActionSupport implements SessionAware {
 
 	private String errorMessage;
 	private String buyFlg = "";
+	private String buyId;
 
 	public String execute() throws SQLException {
 		String result = ERROR;
@@ -95,7 +96,6 @@ public class LoginAction2 extends ActionSupport implements SessionAware {
 		this.errorMessage = errorMessage;
 	}
 
-
 	public ArrayList<ItemDataDTO> getItemList() {
 		return itemList;
 	}
@@ -103,14 +103,20 @@ public class LoginAction2 extends ActionSupport implements SessionAware {
 		this.itemList = itemList;
 	}
 
-
 	public String getBuyFlg() {
 		return buyFlg;
 	}
 
-
 	public void setBuyFlg(String buyFlg) {
 		this.buyFlg = buyFlg;
+	}
+
+	public String getBuyId() {
+		return buyId;
+	}
+
+	public void setBuyId(String buyId) {
+		this.buyId = buyId;
 	}
 
 }

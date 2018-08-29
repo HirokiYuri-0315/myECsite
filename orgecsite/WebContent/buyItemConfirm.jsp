@@ -72,7 +72,12 @@
 				<ul>
 					<li><s:form id="do" action="GoNewItemListAction"><s:submit class="doButton" value="キャンセル"/></s:form></li>
 <%-- 					<li><s:form id="do" action="BuyItemConfirmAction"><s:submit class="doButton" value="購入完了する"/></s:form></li> --%>
-					<li><s:form id="do" action="BuyItemCartAction"><s:submit class="doButton" value="カートに入れる"/></s:form></li>
+					<li>
+						<s:form id="do" action="BuyItemCartAction">
+							<s:hidden name="buyId" value="%{buyId}"/>
+							<s:submit class="doButton" value="カートに入れる"/>
+						</s:form>
+					</li>
 				</ul>
 				</div>
 <%-- 			<a href='<s:url action="BuyItemCartAction" />'>カートに入れる</a> --%>

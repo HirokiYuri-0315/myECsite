@@ -80,8 +80,8 @@
 		</div>
 	<br>
 		<div>
-			<s:form action="SelectItemAction" method="execute">
-				<input type="hidden" name="buyId" value="#session.selectId">
+			<s:form action="SelectItemAction" method="post">
+				<s:hidden name="buyId" value="%{buyId}"/>
 				<select name="buyOrInfo">
 					<option value="3" selected="selected">この商品を購入する</option>
 					<option value="4">やめとく</option>

@@ -35,7 +35,8 @@
 			<s:form action="LoginAction2">		<!-- 新しいアクションを設定 -->
 				<tr><td><label>ログインID:</label></td><td><s:textfield name="loginUserId" theme="simple"/></td></tr>
 				<tr><td><label>ログインPASS:</label></td><td><s:password name="loginPassword" theme="simple"/></td></tr>
-				<input type="hidden" name="buyFlg" value="1">
+				<s:hidden name="buyFlg" value="1"/>
+				<s:hidden  name="buyId" value="%{buyId}"/>
 				<s:submit value="ログイン"/>
 			</s:form>
 

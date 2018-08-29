@@ -13,6 +13,8 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	private String pay;
 	private String errorMessage = "";
 
+	private String buyId;
+
 	public String execute() {
 		String result;
 
@@ -66,6 +68,14 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
+	}
+
+	public String getBuyId() {
+		return buyId;
+	}
+
+	public void setBuyId(String buyId) {
+		this.buyId = buyId;
 	}
 
 }

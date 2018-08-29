@@ -84,6 +84,7 @@
 					</tr>
 				</table>
 				<div id="common_btn_box">
+					<s:hidden name="buyId" value="%{buyId}"/>
 					<s:submit value="購入"/>
 				</div>
 			</s:form>

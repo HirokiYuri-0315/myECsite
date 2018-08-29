@@ -111,7 +111,7 @@
 
 	<action name="CartDeleteSelectAction" class="com.internousdev.orgecsite.action.CartDeleteSelectAction" method="execute">
 		<result name="success">cart.jsp</result>
-		<result name="error">home.jsp</result>
+		<result name="error">errorCart.jsp</result>
 	</action>
 
 
@@ -123,7 +123,7 @@
 
 	<action name="CartSettleConfirmAction" class="com.internousdev.orgecsite.action.CartSettleConfirmAction" method="execute">
 		<result name="success">cartSettleComplete.jsp</result>
-		<result name="error">home.jsp</result>
+		<result name="error">errorHome.jsp</result>
 	</action>
 
 
