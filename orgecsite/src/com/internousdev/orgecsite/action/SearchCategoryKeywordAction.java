@@ -23,6 +23,7 @@ public class SearchCategoryKeywordAction extends ActionSupport implements Sessio
 
 	private Pagination pagination = new Pagination();
 	private String pageNo;
+	private int totalRecordSize = 0;
 
 	public String execute() throws SQLException{
 		String result;
@@ -52,6 +53,8 @@ public class SearchCategoryKeywordAction extends ActionSupport implements Sessio
 		session.put("hasPreviousPage", paginationDTO.isHasPreviousPage());
 		session.put("nextPageNo", paginationDTO.getNextPageNo());
 		session.put("previousPageNo", paginationDTO.getPreviousPageNo());
+
+		totalRecordSize = paginationDTO.getTotalRecordSize();
 
 		result = SUCCESS;
 		return result;
@@ -92,6 +95,14 @@ public class SearchCategoryKeywordAction extends ActionSupport implements Sessio
 
 	public void setPageNo(String pageNo) {
 		this.pageNo = pageNo;
+	}
+
+	public int getTotalRecordSize() {
+		return totalRecordSize;
+	}
+
+	public void setTotalRecordSize(int totalRecordSize) {
+		this.totalRecordSize = totalRecordSize;
 	}
 
 }

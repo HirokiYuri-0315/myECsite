@@ -49,6 +49,10 @@
 
 		<!-- 商品一覧部分 -->
 		<div id="newItemList">
+			<s:if test="totalRecordSize==0">
+				検索結果はありません。
+			</s:if>
+			<s:else>
 			<h3>商品の一覧を表示</h3>
 
 			<div id="hit">
@@ -117,6 +121,7 @@
 			</div>
 			<br>
 			<br>
+		</s:else>
 
 		</div>
 	</div>

@@ -81,13 +81,14 @@
 	<!-- 商品詳細機能 -->
 	<action name="GoItemDetailAction" class="com.internousdev.orgecsite.action.GoItemDetailAction">
 		<result name="success">selectItemDetail.jsp</result>
-		<result name="error">home.jsp</result>
+		<result name="error">errorHome.jsp</result>
 	</action>
 
 
 	<!-- 商品検索機能  -->
 	<action name="SearchCategoryKeywordAction" class="com.internousdev.orgecsite.action.SearchCategoryKeywordAction" method="execute">
 		<result name="success">newItemList.jsp</result>
+		<result name="error">errorHome.jsp</result>
 	</action>
 
 
