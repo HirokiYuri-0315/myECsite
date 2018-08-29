@@ -44,6 +44,7 @@ public class LoginAction2 extends ActionSupport implements SessionAware {
 			// 管理者ページへ飛ぶだけなので他には特に必要なし。
 			result = "master";
 			session.put("login_user_id", loginMDTO.getLoginId());
+			session.put("mFlg", "true");
 		}
 		else if(((LoginDTO)session.get("loginUser")).getLoginFlg()) {
 			// 一般ユーザーとしてログイン成功。

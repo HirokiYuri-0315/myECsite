@@ -20,6 +20,11 @@ public class CartSettleConfirmAction extends ActionSupport implements SessionAwa
 	public String execute() throws SQLException {
 		String result = ERROR;
 
+		// 管理者アカウントは弾く。
+		if(session.containsKey("mFlg")){
+			return "master";
+		}
+
 		if(!session.containsKey("cartInfoDTOList")){
 			return result;
 		}

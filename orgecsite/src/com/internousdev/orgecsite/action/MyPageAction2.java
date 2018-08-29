@@ -23,6 +23,12 @@ public class MyPageAction2 extends ActionSupport implements SessionAware {
 
 	/* user_master_id のみから動作するもの */
 	public String execute2() throws SQLException{
+
+		// 管理者アカウントは弾く。
+		if(session.containsKey("mFlg")){
+			return "master";
+		}
+
 		if(!session.containsKey("login_user_id")) {
 			return ERROR;
 		}	/* sessionのidを持たずに（何らかのおかしな操作で）来てしまった場合、エラーとして弾く。 */

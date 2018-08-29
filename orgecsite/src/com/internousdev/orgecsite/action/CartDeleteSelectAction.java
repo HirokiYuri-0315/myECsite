@@ -18,7 +18,12 @@ public class CartDeleteSelectAction extends ActionSupport implements SessionAwar
 
 	public String execute() throws SQLException{
 		String result = ERROR;
-		
+
+		// 管理者アカウントは弾く。
+		if(session.containsKey("mFlg")){
+			return "master";
+		}
+
 		CartInfoDAO cartInfoDao = new CartInfoDAO();
 		// 削除対象が存在するか確認。
 		String check = cartInfoDao.checkCartId(deleteId);

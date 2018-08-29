@@ -17,7 +17,12 @@ public class GoCartAction extends ActionSupport implements SessionAware {
 	private String checkEmptyC;
 
 	public String execute() throws SQLException {
-		String result;
+		String result= ERROR;
+		// 管理者アカウントは弾く。
+		if(session.containsKey("mFlg")){
+			return "master";
+		}
+
 		if(!session.containsKey("login_user_id")) {
 			return ERROR;
 		}	/* sessionのidを持たずに（何らかのおかしな操作で）来てしまった場合、エラーとして弾く。 */

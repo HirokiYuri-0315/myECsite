@@ -18,6 +18,11 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		String result;
 
+		// 管理者アカウントは弾く。
+		if(session.containsKey("mFlg")){
+			return "master";
+		}
+
 		session.put("count", count);
 		int nowStock = Integer.parseInt(session.get("buyItemStock").toString());
 		int intCount = Integer.parseInt(session.get("count").toString());

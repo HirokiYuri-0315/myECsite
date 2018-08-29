@@ -18,6 +18,11 @@ public class BuyItemCartAction extends ActionSupport implements SessionAware {
 	public String execute() throws SQLException {
 		String result = ERROR;
 
+		// 管理者アカウントは弾く。
+		if(session.containsKey("mFlg")){
+			return "master";
+		}
+
 		SelectItemDAO selectItemDao = new SelectItemDAO();
 		String check = selectItemDao.checkSelectId(buyId);
 		if(check.equals("false")){

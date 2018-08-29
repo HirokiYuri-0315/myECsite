@@ -21,6 +21,12 @@ public class GoCartSettleAction extends ActionSupport implements SessionAware{
 	@SuppressWarnings("unchecked")
 	public String execute() throws SQLException {
 		String result = ERROR;
+
+		// 管理者アカウントは弾く。
+		if(session.containsKey("mFlg")){
+			return "master";
+		}
+
 		setCartInfoDTOList((ArrayList<CartInfoDTO>)session.get("cartInfoDTOList"));
 
 		if(!session.containsKey("login_user_id")){

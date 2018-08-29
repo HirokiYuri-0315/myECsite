@@ -20,6 +20,11 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	public String execute() throws SQLException {
 		String result = "login";	/* if文の条件にかからなければloginを返す。 */
 
+		// 管理者アカウントは弾く。
+		if(session.containsKey("mFlg")){
+			return "master";
+		}
+
 		/* ログイン状態か否かのチェック */
 		if(session.containsKey("login_user_id")) {
 

@@ -29,6 +29,12 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 
 	*/
 		String result;
+
+		// 管理者アカウントは弾く。
+		if(session.containsKey("mFlg")){
+			return "master";
+		}
+
 		if(session.get("login_user_id").equals(null)){
 			result = "loginError";
 		}else{
