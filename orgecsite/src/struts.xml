@@ -25,6 +25,7 @@
 	<!-- GoLoginAction  -->
 	<action name="GoLoginAction" class="com.internousdev.orgecsite.action.GoLoginAction" method="execute">
 		<result name="success">login.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- 旧ホーム画面の機能 -->
@@ -149,6 +150,7 @@
 	<!-- ログアウト機能 -->
 	<action name="LogoutAction" class="com.internousdev.orgecsite.action.LogoutAction" method="execute">
 		<result name="success">home2.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 
@@ -156,6 +158,7 @@
 
 	<action name="GoMasterAction" class="com.internousdev.orgecsite.action.GoMasterAction" method="execute">
 		<result name="success">master.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<!-- 商品追加機能 -->
@@ -170,6 +173,7 @@
 
 	<action name="MasterAddItemCompleteAction" class="com.internousdev.orgecsite.action.MasterAddItemCompleteAction" method="execute">
 		<result name="success">masterAddItemComplete.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 	<action name="GoMasterAddInfoAction" class="com.internousdev.orgecsite.action.GoMasterAddInfoAction" method="addInfo">

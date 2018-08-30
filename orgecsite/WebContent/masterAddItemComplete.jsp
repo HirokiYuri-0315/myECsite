@@ -33,7 +33,7 @@
 			<h3>新しい商品の登録が完了致しました。</h3>
 			<div>
 				<s:form action="GoMasterAddInfoAction" method="addInfo">
-					<input type="hidden" name="addItemName" value="<s:property value='session.addItemName'/>">
+					<input type="hidden" name="addItemName" value="<s:property value='#session.addItemName'/>">
 					<input type="submit" value="続けてこの商品の情報を追加する">
 				</s:form>
 			</div>

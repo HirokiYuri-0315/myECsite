@@ -32,6 +32,10 @@ public class MasterAddItemConfirmAction extends ActionSupport implements Session
 
 		String result = ERROR;
 
+		if(addItemName.length() > 30){
+			setErrorMessage("[!] 商品名は30文字以内で設定してください。");
+			return result;
+		}
 		if((addItemName.equals("") || (addItemPrice.equals("")) || (addItemStock.equals("")))) {
 			setErrorMessage("[!] 未入力の項目があります。");
 			result = ERROR;
@@ -56,39 +60,6 @@ public class MasterAddItemConfirmAction extends ActionSupport implements Session
 			session.put("addItemStock", addItemStockN);
 			result = SUCCESS;
 		}
-
-		/*
-		if(!(addItemName.equals("") || (addItemPrice.equals("")) || (addItemStock.equals("")))) {
-
-			session.put("addItemName", addItemName);
-
-			try{
-				int addItemPriceN = Integer.parseInt(addItemPrice);
-				session.put("addItemStock", addItemPriceN);
-			}catch (NumberFormatException e){
-				setErrorMessage2("価格に正しく数値を入力してください。");
-			}
-
-			try{
-				int addItemStockN = Integer.parseInt(addItemStock);
-				session.put("addItemStock", addItemStockN);
-			}catch (NumberFormatException e){
-				setErrorMessage3("在庫数に正しく数値を入力してください。");
-			}
-
-			if(!(errorMessage2.equals("価格に正しく数値を入力してください。")) && (errorMessage3.equals("在庫数に正しく数値を入力してください。"))){
-				result = SUCCESS;
-			}else{
-				result = ERROR;
-			}
-
-
-		}else {
-			setErrorMessage("未入力の項目があります。");
-			result = ERROR;
-		}
-		*/
-
 		return result;
 	}
 
