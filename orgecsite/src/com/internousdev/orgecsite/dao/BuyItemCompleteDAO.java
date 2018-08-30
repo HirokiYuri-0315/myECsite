@@ -143,18 +143,20 @@ public class BuyItemCompleteDAO {
 
 	private DBConnector dbConnector4 = new DBConnector();
 	private Connection connection4 = dbConnector4.getConnection();
-	public void updateStock(String item_transaction_id, int newCount) throws SQLException {
+	public int updateStock(String item_transaction_id, int newCount) throws SQLException {
+		int count = 0;
 		try {
 			PreparedStatement ps4 = connection4.prepareStatement(sqlUpdateStock);
 			ps4.setInt(1, newCount);
 			ps4.setString(2, dateUtil.getDate());
 			ps4.setString(3, item_transaction_id);
-			ps4.execute();
+			count = ps4.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally{
 			connection4.close();
 		}
+		return count;
 	}
 
 	// 管理ページの「商品情報の更新･編集」に利用している。MasterUpdateItemInfoConfirmAction

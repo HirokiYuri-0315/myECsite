@@ -12,15 +12,37 @@ public class MasterAddStockCompleteAction extends ActionSupport implements Sessi
 
 	public Map<String, Object> session;
 	private BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
+	private int new_stock;
+
+	/* 数値かどうかを判定する isNumber() を定義。（拾いもの） */
+	public boolean isNumber(String num) {
+	    try {
+	        Integer.parseInt(num);
+	        return true;
+	        } catch (NumberFormatException e) {
+	        return false;
+	    }
+	}
 
 	public String execute() throws SQLException {
 		// 管理者アカウント以外は弾く。
 		if(!session.containsKey("mFlg")){
-			return "n_master";
+			return ERROR;
 		}
-		int new_stock = Integer.parseInt(session.get("newStock").toString());
+
+		if(session.containsKey("newStock")&&session.containsKey("id")){
+			if(isNumber(session.get("newStock").toString())){
+				new_stock = Integer.parseInt(session.get("newStock").toString());
+			}
+		}else{
+			return ERROR;
+		}
+
 		String searchId = session.get("id").toString();
-		buyItemCompleteDAO.updateStock(searchId, new_stock);
+		int count = buyItemCompleteDAO.updateStock(searchId, new_stock);
+		if(count < 1){
+			return ERROR;
+		}
 
 		String result = SUCCESS;
 		return result;
