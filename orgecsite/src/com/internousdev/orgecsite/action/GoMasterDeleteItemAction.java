@@ -18,6 +18,10 @@ public class GoMasterDeleteItemAction extends ActionSupport implements SessionAw
 
 
 	public String execute() throws SQLException {
+		// 管理者アカウント以外は弾く。
+		if(!session.containsKey("mFlg")){
+			return "n_master";
+		}
 		setItemList(itemDataDAO.getNewItemDataInfo());
 		session.put("itemList", itemList);
 		return SUCCESS;

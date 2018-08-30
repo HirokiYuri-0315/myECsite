@@ -18,6 +18,10 @@ public class GoMasterAddInfoAction extends ActionSupport implements SessionAware
 
 	public String addInfo() throws SQLException {
 		String result;
+		// 管理者アカウント以外は弾く。
+		if(!session.containsKey("mFlg")){
+			return "n_master";
+		}
 		// 受け取る値は addItemName（商品ID）で、それを元に情報取得へ。
 		String selectId = itemDataDAO.getIdFromName(addItemName);
 		if(selectId == null){

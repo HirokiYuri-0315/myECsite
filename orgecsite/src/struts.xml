@@ -159,11 +159,13 @@
 	<action name="GoMasterAction" class="com.internousdev.orgecsite.action.GoMasterAction" method="execute">
 		<result name="success">master.jsp</result>
 		<result name="error">error.jsp</result>
+		<result name="n_master">error.jsp</result>
 	</action>
 
 	<!-- 商品追加機能 -->
 	<action name="GoMasterAddItemAction" class="com.internousdev.orgecsite.action.GoMasterAddItemAction" method="execute">
 		<result name="success">masterAddItem.jsp</result>
+		<result name="n_master">error.jsp</result>
 	</action>
 
 	<action name="MasterAddItemConfirmAction" class="com.internousdev.orgecsite.action.MasterAddItemConfirmAction" method="execute">
@@ -174,16 +176,19 @@
 	<action name="MasterAddItemCompleteAction" class="com.internousdev.orgecsite.action.MasterAddItemCompleteAction" method="execute">
 		<result name="success">masterAddItemComplete.jsp</result>
 		<result name="error">error.jsp</result>
+		<result name="n_master">error.jsp</result>
 	</action>
 
 	<action name="GoMasterAddInfoAction" class="com.internousdev.orgecsite.action.GoMasterAddInfoAction" method="addInfo">
 		<result name="success">masterUpdateItemInfo.jsp</result>
 		<result name="error">masterAddItemComplete.jsp</result>
+		<result name="n_master">error.jsp</result>
 	</action>
 
 	<!-- 商品削除機能 -->
 	<action name="GoMasterDeleteItemAction" class="com.internousdev.orgecsite.action.GoMasterDeleteItemAction" method="execute">
 		<result name="success">masterDeleteItem.jsp</result>
+		<result name="n_master">error.jsp</result>
 	</action>
 
 	<action name="MasterDeleteItemConfirmAction" class="com.internousdev.orgecsite.action.MasterDeleteItemConfirmAction" method="execute">
@@ -194,11 +199,13 @@
 	<action name="MasterDeleteItemCompleteAction" class="com.internousdev.orgecsite.action.MasterDeleteItemCompleteAction" method="execute">
 		<result name="success">masterDeleteItemComplete.jsp</result>
 		<result name="error">error.jsp</result>
+		<result name="n_master">error.jsp</result>
 	</action>
 
 	<!-- 在庫数変更機能 -->
 	<action name="GoMasterAddStockAction" class="com.internousdev.orgecsite.action.GoMasterAddStockAction" method="execute">
 		<result name="success">masterAddStockSelect.jsp</result>
+		<result name="n_master">error.jsp</result>
 	</action>
 
 	<action name="MasterAddStockConfirmAction" class="com.internousdev.orgecsite.action.MasterAddStockConfirmAction" method="execute">
@@ -209,11 +216,13 @@
 
 	<action name="MasterAddStockCompleteAction" class="com.internousdev.orgecsite.action.MasterAddStockCompleteAction" method="execute">
 		<result name="success">masterAddStockComplete.jsp</result>
+		<result name="n_master">error.jsp</result>
 	</action>
 
 	<!-- 商品情報編集機能 -->
 	<action name="GoMasterUpdateItemInfoAction" class="com.internousdev.orgecsite.action.GoMasterUpdateItemInfoAction" method="execute">
 		<result name="success">masterUpdateItemInfoSelect.jsp</result>
+		<result name="n_master">error.jsp</result>
 	</action>
 
 	<action name="MasterUpdateItemInfoSelectAction" class="com.internousdev.orgecsite.action.MasterUpdateItemInfoSelectAction" method="execute">
@@ -228,6 +237,7 @@
 
 	<action name="MasterUpdateItemInfoConfirmAction" class="com.internousdev.orgecsite.action.MasterUpdateItemInfoConfirmAction" method="execute">
 		<result name="success">masterUpdateItemInfoComplete.jsp</result>
+		<result name="n_master">error.jsp</result>
 	</action>
 
 <!-- 	<action name="TestAction" class="com.internousdev.orgecsite.action.TestAction" method="execute"> -->

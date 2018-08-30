@@ -14,6 +14,10 @@ public class MasterUpdateItemInfoConfirmAction extends ActionSupport implements 
 
 	public String execute() throws SQLException{
 		String result;
+		// 管理者アカウント以外は弾く。
+		if(!session.containsKey("mFlg")){
+			return "n_master";
+		}
 		// DAOの updateItemInfo メソッドに対応する変数を準備する。
 		int selectId = Integer.parseInt(session.get("selectId").toString());
 		String updateItemName = session.get("updateItemName").toString();

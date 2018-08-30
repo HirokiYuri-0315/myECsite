@@ -10,6 +10,10 @@ public class GoMasterAction extends ActionSupport implements SessionAware {
 
 	public Map<String, Object> session;
 	public String execute() {
+		// 管理者アカウント以外は弾く。
+		if(!session.containsKey("mFlg")){
+			return "n_master";
+		}
 		return SUCCESS;
 	}
 

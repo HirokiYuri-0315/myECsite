@@ -14,6 +14,10 @@ public class MasterDeleteItemCompleteAction extends ActionSupport implements Ses
 
 	// 実行
 	public String execute() throws SQLException {
+		// 管理者アカウント以外は弾く。
+		if(!session.containsKey("mFlg")){
+			return "n_master";
+		}
 
 		// deleteItemInfo(String) に合わせ、データ型を調整しておく。
 		String deleteId = session.get("deleteId").toString();

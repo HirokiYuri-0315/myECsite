@@ -14,6 +14,10 @@ public class MasterAddStockCompleteAction extends ActionSupport implements Sessi
 	private BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
 
 	public String execute() throws SQLException {
+		// 管理者アカウント以外は弾く。
+		if(!session.containsKey("mFlg")){
+			return "n_master";
+		}
 		int new_stock = Integer.parseInt(session.get("newStock").toString());
 		String searchId = session.get("id").toString();
 		buyItemCompleteDAO.updateStock(searchId, new_stock);
