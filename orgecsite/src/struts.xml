@@ -12,6 +12,7 @@
 	<!-- GoHomeAction  -->
 	<action name="GoHomeAction" class="com.internousdev.orgecsite.action.GoHomeAction" method="execute">
 		<result name="success">home2.jsp</result>
+		<result name="master">errorMaster.jsp</result>
 	</action>
 
 	<!-- GoCartAction  -->
