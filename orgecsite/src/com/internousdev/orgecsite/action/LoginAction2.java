@@ -65,6 +65,9 @@ public class LoginAction2 extends ActionSupport implements SessionAware {
 		if(result.equals("success") && buyFlg.equals("1")){
 			// 購入ページ手前でログインを求めた場合のやつ。
 			result = "goBuyPage";
+		}else if(result.equals("error") && buyFlg.equals("1")){
+			// 購入ページ手前でログインを求めた場合のやつ。
+			result = "return";
 		}
 		return result;
 	}

@@ -38,26 +38,17 @@
 			<s:form action="UserCreateConfirmAction">
 				<tr>
 					<td>
-						<label>ログインID:</label>
-					</td>
-					<td>
-						<input type="text" name="loginUserId" value="" />
+						<s:textfield name="loginUserId" value="%{loginUserId}" label="ログインID"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<label>ログインPASS:</label>
-					</td>
-					<td>
-						<input type="text" name="loginPassword" value="" />
+						<s:textfield name="loginPassword" value="%{loginPassword}" label="ログインPASS"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<label>ユーザー名:</label>
-					</td>
-					<td>
-						<input type="text" name="userName" value="" />
+						<s:textfield name="userName" value="%{userName}" label="ユーザー名"/>
 					</td>
 				</tr>
 				<s:submit value="登録" />

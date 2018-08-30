@@ -29,8 +29,12 @@
 		</div>
 		<div>
 
-			<h2>エラーが発生しました</h2>
-			<h3></h3>
+			<h2>エラーが発生しました</h2><br>
+			<br>
+			<s:if test='errorMessage != ""'>	<!-- 追加 -->
+				<h4><s:property value="errorMessage" escape="false" /></h4>
+			</s:if>
+
 			<br>
 			<div>
 				<p><a href='<s:url action="LogoutAction"/>'>Home画面</a>から操作をやり直してください。</p>

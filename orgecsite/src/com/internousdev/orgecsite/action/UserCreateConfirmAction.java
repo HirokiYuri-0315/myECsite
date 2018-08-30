@@ -19,11 +19,26 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public String execute() {
 
 		String result = ERROR;
+
+			if(loginUserId.length() > 16){
+				setErrorMessage("[!] ログインIDは16文字以内で設定してください。");
+				return result;
+			}
+			if(loginPassword.length() > 16){
+				setErrorMessage("[!] パスワードは16文字以内で設定してください。");
+				return result;
+			}
+			if(userName.length() > 50){
+				setErrorMessage("[!] ログインIDは50文字以内で設定してください。");
+				return result;
+			}
+
 		LoginDAO loginDAO = new LoginDAO();
 		LoginDTO loginDTO = new LoginDTO();
 		// ログインIDが他と被るとおかしくなるのでそれは避けたい。（ログインIDは固有のものにしたい）
 		loginDTO = loginDAO.checkLoginIdInfo(loginUserId);
 		String anotherId = loginDTO.getDoubleId();
+
 		if(loginUserId.equals(anotherId)){
 			setErrorMessage("[!] そのログインIDは登録済みです。");
 			result = ERROR;
@@ -35,7 +50,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("loginPassword", loginPassword);
 			session.put("userName", userName);
 			result = SUCCESS;
-		} else {
+		}else {
 			setErrorMessage("[!] 未入力の項目があります。");
 			result = ERROR;
 		}

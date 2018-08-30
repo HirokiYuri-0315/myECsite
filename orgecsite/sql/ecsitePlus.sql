@@ -80,6 +80,7 @@ INSERT INTO item_info_transaction(item_name,item_name_kana,item_price,item_stock
 INSERT INTO login_user_transaction(login_id,login_pass,user_name) VALUES("guest","guest","テストユーザー");
 INSERT INTO login_user_transaction(login_id,login_pass,user_name) VALUES("taro","123","山田太郎");
 INSERT INTO login_master_user_transaction(login_id,login_pass,user_name) VALUES("root","masterAkira","admin");
+INSERT INTO login_master_user_transaction(login_id,login_pass,user_name) VALUES("admin","admin","test");
 
 
 drop table if exists cart_info;
