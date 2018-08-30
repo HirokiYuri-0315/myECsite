@@ -80,7 +80,7 @@
 					</tr>
 					<tr>
 						<th scope="row">商品詳細</th>
-						<td height="52"><s:property value="session.updateItemDescription"/></td>
+						<td height="52"><div id="description"><s:property value="session.updateItemDescription"/></div></td>
 					</tr>
 				</table>
 			</div>
@@ -91,7 +91,6 @@
 		<h4>以上のように更新します。よろしいでしょうか？</h4>
 		<br><s:form action="MasterUpdateItemInfoConfirmAction" method="execute"><input type="submit" value="更新する"></s:form>
 		<br><s:form action="MasterUpdateItemInfoSelectAction" method="execute"><input type="submit" value="やり直す"></s:form>
-
 	</div>
 
 

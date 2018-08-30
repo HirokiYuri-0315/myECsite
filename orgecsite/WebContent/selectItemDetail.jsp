@@ -73,7 +73,7 @@
 					</tr>
 					<tr>
 						<th scope="row">商品詳細</th>
-						<td height="52"><s:property value="session.selectItemDescription"/></td>
+						<td height="52" id="description"><s:property value="session.selectItemDescription"/></td>
 					</tr>
 				</table>
 			</div>

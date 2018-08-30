@@ -340,7 +340,7 @@ table#item_info{
 	width: 450px;
 	background-color: #aaeeff;
 	border: 2 bouble black;
-	font-size: 18px;
+	font-size: 16px;
 }
 table#item_info th{
 	width: 30%;
@@ -350,6 +350,13 @@ table#item_info td{
 	width: 100%;
 	text-align: left;
 	padding: 2px;
+	font-size: 14px;
+}
+div#description{
+	max-width: 290px;
+	max-height: 60px;
+	word-wrap: break-word;
+	overflow-y: scroll;
 }
 
 /* ========新しい商品一覧ページ用======== */
@@ -394,15 +401,21 @@ table#item_info td{
 	display: inline-block;
 	border: 2px solid #ddbb55;
 	border-radius: 5px;
-    box-shadow:2px 2px #1a6ea0;
+	box-shadow:2px 2px #1a6ea0;
 	background-color: #ffeebb;
 	margin: 10px;
 	padding: 10px;
 }
 #newItemList ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+	max-width: 210px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+#newItemList ul li{
+	white-space: nowrap;
+	overflow:hidden;
+	text-overflow: ellipsis;
 }
 #newItemList #item_image_box{
 	display: table-cell;
