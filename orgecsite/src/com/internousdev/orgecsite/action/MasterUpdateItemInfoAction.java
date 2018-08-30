@@ -59,13 +59,13 @@ public class MasterUpdateItemInfoAction extends ActionSupport implements Session
 		result = ERROR;
 		if(isNumber(updateItemPrice)==false){
 			// 価格が数値でない場合
-			setErrorMessage("[!] 価格に正しく数値を入力してください。");
+			setErrorMessage("[!] 価格は半角数字で入力してください。");
 		}else if(Integer.parseInt(updateItemPrice) < 0){
 			// 価格がマイナスに設定されている場合
 			setErrorMessage("[!] 価格がマイナスになってしまいます。");
 		}else if(!(imageUrl.equals("")) && !(image_file_pass.equals("image"))){
 			// 画像ファイルパスがimage以外の何かが指定されている場合（変なとこから持ってきている場合）
-			setErrorMessage("[!] うまく動かないので、今は画像をWebContentフォルダ内のimageフォルダから選択してください。");
+			setErrorMessage("[!] 画像はWebContentフォルダ内のimageフォルダから選択してください。");
 		}else{
 			session.put("updateItemName", updateItemName);
 			session.put("updateItemNameKana", updateItemNameKana);
