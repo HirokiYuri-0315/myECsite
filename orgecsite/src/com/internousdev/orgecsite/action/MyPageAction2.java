@@ -17,9 +17,7 @@ public class MyPageAction2 extends ActionSupport implements SessionAware {
 	private ArrayList<MyPageDTO> myPageList2 = new ArrayList<MyPageDTO>();
 	private String deleteFlg;
 	private String message;
-
 	public String checkEmpty;
-
 
 	/* user_master_id のみから動作するもの */
 	public String execute2() throws SQLException{
@@ -28,11 +26,10 @@ public class MyPageAction2 extends ActionSupport implements SessionAware {
 		if(session.containsKey("mFlg")){
 			return "master";
 		}
-
+		// sessionのidを持たずに（何らかのおかしな操作で）来てしまった場合、エラーとして弾く。
 		if(!session.containsKey("login_user_id")) {
 			return ERROR;
-		}	/* sessionのidを持たずに（何らかのおかしな操作で）来てしまった場合、エラーとして弾く。 */
-
+		}
 		if(deleteFlg == null) {
 			String user_master_id = session.get("login_user_id").toString();
 			myPageList2 = myPageDAO2.getMyPageUserInfo3(user_master_id);
@@ -46,14 +43,11 @@ public class MyPageAction2 extends ActionSupport implements SessionAware {
 		return result;
 	}
 
-
 	// user_master_id のみから動作するもの。
 	// 購入情報からユーザーIDが一致するものを検索し、削除する。
 	public void delete2() throws SQLException {
 		String user_master_id = session.get("login_user_id").toString();
-
 		int res = myPageDAO2.buyItemHistoryDelete2(user_master_id);
-
 		if(res > 0) {
 			myPageList2 = null;
 			setMessage("商品情報を正しく削除しました。");
@@ -83,16 +77,13 @@ public class MyPageAction2 extends ActionSupport implements SessionAware {
 		this.message = message;
 	}
 
-
 	public void setMyPageList2(ArrayList<MyPageDTO> myPageList2) {
 		this.myPageList2 = myPageList2;
 	}
 
-
 	public String getCheckEmpty() {
 		return checkEmpty;
 	}
-
 
 	public void setCheckEmpty(String checkEmpty) {
 		this.checkEmpty = checkEmpty;

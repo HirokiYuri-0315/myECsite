@@ -14,20 +14,6 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 	private BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
 
 	public String execute() throws SQLException {
-	/*
-		// 購入情報の書き込み。
-		buyItemCompleteDAO1.buyItemInfo(
-				session.get("id").toString(),
-				session.get("login_user_id").toString(),
-				session.get("total_price").toString(),
-				session.get("count").toString(),
-				session.get("pay").toString());
-
-		// 在庫数の変動処理。
-		int buy_count = new Integer(session.get("count").toString());
-		buyItemCompleteDAO2.buyStockDecriment(session.get("id").toString(), buy_count);
-
-	*/
 		String result;
 
 		// 管理者アカウントは弾く。
@@ -38,11 +24,15 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 		if(session.get("login_user_id").equals(null)){
 			result = "loginError";
 		}else{
-		// 購入情報の書き込みと、在庫数の変動処理を合わせて行う。
-		int new_stock = Integer.parseInt(session.get("newStock").toString());
-		buyItemCompleteDAO.buyItemInfoStock(session.get("id").toString(), session.get("login_user_id").toString(), session.get("total_price").toString(), session.get("count").toString(), session.get("pay").toString(), new_stock);
+			// 購入情報の書き込みと、在庫数の変動処理を合わせて行う。
+			int new_stock = Integer.parseInt(session.get("newStock").toString());
 
-		result = SUCCESS;
+			buyItemCompleteDAO.buyItemInfoStock(session.get("id").toString(),
+					session.get("login_user_id").toString(),
+					session.get("total_price").toString(),
+					session.get("count").toString(),
+					session.get("pay").toString(), new_stock);
+			result = SUCCESS;
 		}
 		return result;
 	}

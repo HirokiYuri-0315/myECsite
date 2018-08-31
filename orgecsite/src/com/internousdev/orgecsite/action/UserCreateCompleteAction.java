@@ -17,10 +17,10 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 		String result = ERROR;
 
 		if(session.containsKey("loginUserId") && session.containsKey("loginPassword") && session.containsKey("userName")){
-
 			String userId = session.get("loginUserId").toString();
 			String password = session.get("loginPassword").toString();
 			String userName = session.get("userName").toString();
+			// DBのテーブルで文字数を指定しているので、入らないものは弾く。
 			if(userId.length() > 16){
 				setErrorMessage("ログインIDは16文字以内で設定してください。");
 				return result;
@@ -33,7 +33,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 				setErrorMessage("ログインIDは50文字以内で設定してください。");
 				return result;
 			}
-
+			// ユーザー情報をテーブルに書き込む。
 			UserCreateCompleteDAO userCreateCompleteDAO = new UserCreateCompleteDAO();
 			userCreateCompleteDAO.createUser(session.get("loginUserId").toString(),
 					session.get("loginPassword").toString(),

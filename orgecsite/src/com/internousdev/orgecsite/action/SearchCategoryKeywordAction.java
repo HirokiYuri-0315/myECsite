@@ -29,11 +29,7 @@ public class SearchCategoryKeywordAction extends ActionSupport implements Sessio
 		String result = ERROR;
 		String searchCategoryId = categoryId;
 
-//		String searchKeyword = "%"+ keyword +"%";
-//		setNewItemList(itemDataDAO.searchNewItemDataInfo(searchCategoryId, searchKeyword));
-//		// 検索結果を newItemList にセットした。
-//		session.put("newItemList", newItemList);
-
+		// スペース区切りでキーワードのリストを作成し、検索する。
 		String[] keywordList = keyword.replaceAll("　"," ").split(" ");
 		setNewItemList(itemDataDAO.searchItemByKeywords(searchCategoryId, keywordList));
 		// 検索結果を newItemList にセットした。

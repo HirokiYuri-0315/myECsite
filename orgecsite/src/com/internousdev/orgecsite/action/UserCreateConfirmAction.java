@@ -20,6 +20,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 		String result = ERROR;
 
+		// テーブルで設定している文字数に配慮。
 			if(loginUserId.length() > 16){
 				setErrorMessage("[!] ログインIDは16文字以内で設定してください。");
 				return result;
