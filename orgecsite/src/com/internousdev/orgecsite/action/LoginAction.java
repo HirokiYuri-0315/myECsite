@@ -19,9 +19,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	private LoginDTO loginDTO = new LoginDTO();
 	private BuyItemDAO buyItemDAO = new BuyItemDAO();
 
-	private String errorMessage;	/* 追加 */
+	private String errorMessage;
 
 	public String execute() {
+		// 旧バージョンを保管してあるだけ。
 		String result = ERROR;
 		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
 		session.put("loginUser", loginDTO);
