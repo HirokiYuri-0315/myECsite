@@ -142,7 +142,7 @@
 	<!-- マイページ機能 -->
 	<action name="MyPageAction2" class="com.internousdev.orgecsite.action.MyPageAction2" method="execute2">
 		<result name="success">myPage.jsp</result>
-		<result name="error">myPageError.jsp</result>
+		<result name="error">errorHome.jsp</result>
 		<result name="master">errorMaster.jsp</result>
 	</action>
 
